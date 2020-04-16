@@ -1,16 +1,39 @@
 #include <vector>
 #include "algobot.h"
+#include <set>
 
 using namespace std;
 
 // Ejercicio 1
 vector<int> quitar_repetidos(vector<int> s) {
-    return vector<int>();
+    vector<int> res{};
+    for (int x : s){
+        if (res.size()==0){
+            res.push_back(x);
+        } else{
+            for (int y : res){
+                if (x == y){
+                    break;
+                }
+                res.push_back(x);
+            }
+        }
+    }
+    return res;
 }
 
 // Ejercicio 2
 vector<int> quitar_repetidos_v2(vector<int> s) {
-    return vector<int>();
+    set<int> temp;
+    for (int x : s) {
+        temp.insert(x);
+    }
+    //
+    vector<int> res;
+    for(int j : temp){
+        res.push_back(j);
+    }
+    return res;
 }
 
 // Ejercicio 3
